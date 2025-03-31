@@ -18,6 +18,8 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Middleware para el manejo de errores
+routerAPI(app);
 //MALR: Routes
 const api = config.API_URL;
 app.get(`${api}`, (req,res)=>{
@@ -31,7 +33,5 @@ app.get('/MARL', (req,res)=>{
     );
 })
 
-// Middleware para el manejo de errores
-routerAPI(app);
 // Export App
 export default app;
